@@ -1,0 +1,46 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_BASIC_OOP
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_BASIC_OOP.
+CLASS BASIC DEFINITION.
+
+  PUBLIC SECTION.
+    DATA: NAME TYPE STRING VALUE 'TCH'.
+    METHODS: T1, T2, T3.
+
+  PROTECTED SECTION.
+    METHODS: DISPLAY.
+
+  PRIVATE SECTION.
+    METHODS: SHOW.
+ENDCLASS.
+
+CLASS BASIC IMPLEMENTATION.
+  METHOD T1.
+    "Write: / 'This is t1 method from basic'.
+  ENDMETHOD.
+
+  METHOD T2.
+    WRITE: /'This is t2 method from basic'.
+  ENDMETHOD.
+
+  METHOD T3.
+    CALL METHOD: DISPLAY, SHOW.
+  ENDMETHOD.
+
+  METHOD DISPLAY.
+    WRITE: /'This is display method protected from basic under t1'.
+  ENDMETHOD.
+
+  METHOD SHOW.
+    WRITE: /'This is show method private from basic under t1'.
+  ENDMETHOD.
+ENDCLASS.
+
+START-OF-SELECTION.
+  DATA: OBJ1 TYPE REF TO BASIC.
+  CREATE OBJECT: OBJ1.
+  WRITE: / OBJ1->NAME.
+  CALL METHOD: OBJ1->T1, OBJ1->T2, OBJ1->T3.

@@ -1,0 +1,46 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_INTERFACE_CALC
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_INTERFACE_CALC.
+INTERFACE INF.
+  DATA: NUM1 TYPE I, NUM2 TYPE I.
+ENDINTERFACE.
+
+CLASS ADDITION DEFINITION.
+  PUBLIC SECTION.
+    INTERFACES: INF.
+    METHODS: LOGIC1.
+ENDCLASS.
+
+CLASS ADDITION IMPLEMENTATION.
+  METHOD LOGIC1.
+    DATA RESULT TYPE I.
+    INF~NUM1 = 5.
+    INF~NUM2 = 5.
+    RESULT = INF~NUM1 + INF~NUM2.
+    WRITE: / 'Addition of both numbers: ', RESULT.
+  ENDMETHOD.
+ENDCLASS.
+
+CLASS SUBTRACTION DEFINITION.
+  PUBLIC SECTION.
+    INTERFACES: INF.
+    METHODS: LOGIC2.
+ENDCLASS.
+
+CLASS SUBTRACTION IMPLEMENTATION.
+  METHOD LOGIC2.
+    DATA: RESULT TYPE I.
+    INF~NUM1 = 5.
+    INF~NUM2 = 5.
+    RESULT = INF~NUM1 - INF~NUM2.
+    WRITE: / 'Subtraction of both numbers: ', RESULT.
+  ENDMETHOD.
+ENDCLASS.
+
+START-OF-SELECTION.
+  DATA: OBJ1 TYPE REF TO ADDITION, OBJ2 TYPE REF TO SUBTRACTION.
+  CREATE OBJECT: OBJ1, OBJ2.
+  CALL METHOD: OBJ1->LOGIC1, OBJ2->LOGIC2.

@@ -1,0 +1,15 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_FAC
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_FAC.
+PARAMETERS: NUM TYPE I.
+DATA: ITE    TYPE I VALUE 1,
+      RESULT TYPE INT8 VALUE 1.
+WHILE ITE <= NUM.
+  RESULT = RESULT * ITE.
+  ITE = ITE + 1.
+ENDWHILE.
+
+WRITE: 'The factorial of ', NUM, ':', RESULT.

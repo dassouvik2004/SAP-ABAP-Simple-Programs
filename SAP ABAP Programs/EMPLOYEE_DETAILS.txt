@@ -1,0 +1,32 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_EMPLOYEE_DETAILS
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_EMPLOYEE_DETAILS.
+CLASS EMPLOYEEDETAILS DEFINITION.
+  PUBLIC SECTION.
+    DATA: EMPLOYEE_NAME   TYPE STRING, EMPLOYEE_DOMAIN TYPE STRING.
+    METHODS: DISPLAY.
+  PRIVATE SECTION.
+    DATA: EMPLOYEE_ID TYPE I.
+    METHODS: SHOW.
+ENDCLASS.
+CLASS EMPLOYEEDETAILS IMPLEMENTATION.
+  METHOD DISPLAY.
+    EMPLOYEE_NAME = 'Souvik Das'.
+    EMPLOYEE_DOMAIN = 'Product Checker'.
+    WRITE: /'Employee Name: ',EMPLOYEE_NAME, ',', 'Employee Domain: ',EMPLOYEE_DOMAIN.
+    CALL METHOD SHOW.
+  ENDMETHOD.
+
+  METHOD SHOW.
+    EMPLOYEE_ID = 101.
+    WRITE: /'Employee Id: ',EMPLOYEE_ID.
+  ENDMETHOD.
+ENDCLASS.
+
+START-OF-SELECTION.
+  DATA: OBJ TYPE REF TO EMPLOYEEDETAILS.
+  CREATE OBJECT: OBJ.
+  CALL METHOD: OBJ->DISPLAY.

@@ -1,0 +1,19 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_CHECKBOX
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_CHECKBOX.
+SELECTION-SCREEN BEGIN OF BLOCK BLOCK1 WITH FRAME TITLE TEXT-100.
+PARAMETERS: MALE   AS CHECKBOX, FEMALE AS CHECKBOX, OTHERS AS CHECKBOX.
+IF MALE = 'X'.
+  WRITE: / 'Your Gender is: Male.'.
+ENDIF.
+IF FEMALE = 'X'.
+  WRITE: / 'Your Gender is: Female.'.
+ENDIF.
+IF OTHERS = 'X'.
+  WRITE: / 'Your Gender is: Others.'.
+ENDIF.
+
+SELECTION-SCREEN END OF BLOCK BLOCK1.

@@ -1,0 +1,27 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_RADIOBUTTON
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_RADIOBUTTON.
+SELECTION-SCREEN BEGIN OF BLOCK BLOCK1 WITH FRAME TITLE TEXT-169.
+PARAMETERS: A TYPE I, B TYPE I.
+PARAMETERS: ADDITION RADIOBUTTON GROUP GP DEFAULT 'X',
+            SUBTRAC RADIOBUTTON GROUP GP,
+            MULTIPLI RADIOBUTTON GROUP GP,
+            DIVISION RADIOBUTTON GROUP GP.
+DATA: SUM TYPE I, SUB TYPE I, MUL TYPE I, DIV TYPE I.
+SUM = A + B.
+SUB = A - B.
+MUL = A * B.
+DIV = A / B.
+IF ADDITION = 'X'.
+  WRITE: /'Addition: ', SUM.
+ELSEIF SUBTRAC = 'X'.
+  WRITE: /'Subtraction: ', SUB.
+ELSEIF MULTIPLI = 'X'.
+  WRITE: /'Multiplication: ', MUL.
+ELSE.
+  WRITE: /'Division: ', DIV.
+ENDIF.
+SELECTION-SCREEN END OF BLOCK BLOCK1.

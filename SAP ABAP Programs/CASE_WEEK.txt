@@ -1,0 +1,25 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_CASEWHEN
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_CASEWHEN.
+PARAMETERS: DAY TYPE STRING.
+CASE DAY.
+  WHEN 'SUNDAY'.
+    WRITE: / '1st day of week'.
+  WHEN 'MONDAY'.
+    WRITE: / '2nd day of week'.
+  WHEN 'TUESDAY'.
+    WRITE: / '3rd day of week'.
+  WHEN 'WEDNESDAY'.
+    WRITE: / '4th day of week'.
+  WHEN 'THURSDAY'.
+    WRITE: / '5th day of week'.
+  WHEN 'FRIDAY'.
+    WRITE: / '6th day of week'.
+  WHEN 'SATURDAY'.
+    WRITE: / '7th day of week'.
+  WHEN OTHERS.
+    WRITE: /'Invalid day, please write valid day'.
+ENDCASE.

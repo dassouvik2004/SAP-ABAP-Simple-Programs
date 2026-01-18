@@ -1,0 +1,13 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_CHARACTER
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_CHARACTER.
+DATA: NAME(20) TYPE C VALUE 'Souvik Das'.
+WRITE: NAME.
+DATA: COLLEGE TYPE STRING VALUE 'Techno India Hooghly'.
+WRITE / COLLEGE.
+
+DATA PY TYPE P DECIMALS 3 VALUE '3.142'.
+WRITE / PY.

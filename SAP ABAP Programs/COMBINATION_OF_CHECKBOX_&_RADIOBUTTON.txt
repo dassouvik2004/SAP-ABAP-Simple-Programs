@@ -1,0 +1,38 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_SC
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_SC.
+SELECTION-SCREEN BEGIN OF BLOCK BLOCK1 WITH FRAME TITLE TEXT-101.
+PARAMETERS: MALE   RADIOBUTTON GROUP G,
+            FEMALE RADIOBUTTON GROUP G,
+            OTHERS RADIOBUTTON GROUP G.
+
+IF MALE = 'X'.
+  WRITE: / 'Male'.
+ELSEIF FEMALE = 'X'.
+  WRITE: / 'Male'.
+ELSE.
+  WRITE: /'Others'.
+ENDIF.
+
+SELECTION-SCREEN END OF BLOCK BLOCK1.
+SELECTION-SCREEN BEGIN OF BLOCK BLOCK2 WITH FRAME TITLE TEXT-102.
+PARAMETERS: C    AS CHECKBOX,
+            JAVA AS CHECKBOX,
+            ABAP AS CHECKBOX,
+            NONE AS CHECKBOX.
+IF C = 'X'.
+  WRITE / 'Your Favorite Subject is C Language'.
+ENDIF.
+IF JAVA = 'X'.
+  WRITE / 'Your Favorite Subject is Java Language'.
+ENDIF.
+IF ABAP = 'X'.
+  WRITE / 'Your Favorite Subject is SAP ABAP Language'.
+ENDIF.
+IF NONE = 'X'.
+  WRITE / 'Your Favorite Subject is none'.
+ENDIF.
+SELECTION-SCREEN END OF BLOCK BLOCK2.

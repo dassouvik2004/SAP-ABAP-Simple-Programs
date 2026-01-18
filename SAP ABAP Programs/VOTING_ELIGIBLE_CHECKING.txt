@@ -1,0 +1,16 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_VOTING_ELIGIBLE
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_VOTING_ELIGIBLE.
+SELECTION-SCREEN BEGIN OF BLOCK BLOCK1 WITH FRAME TITLE TEXT-101.
+PARAMETERS: AGE TYPE I.
+IF AGE LE 18.
+  WRITE: /'You are not eligible for Vote.'.
+ELSEIF AGE GE 18 AND AGE LE 60.
+  WRITE: / 'You are eligible for Vote'.
+ELSE.
+  WRITE: / 'You are above 60 years old, your voting age is end.'.
+ENDIF.
+SELECTION-SCREEN END OF BLOCK BLOCK1.

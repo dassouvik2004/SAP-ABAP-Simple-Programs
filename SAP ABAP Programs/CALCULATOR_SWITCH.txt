@@ -1,0 +1,31 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_CALC_SWITCH
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_CALC_SWITCH.
+PARAMETERS: NUM1 TYPE I, NUM2 TYPE I, CH TYPE C.
+DATA RES TYPE C.
+IF CH = '+'.
+  DATA SUM TYPE I.
+  SUM = NUM1 + NUM2.
+  WRITE: / 'Addition: ', SUM.
+ELSEIF CH = '-'.
+  DATA SUB TYPE I.
+  SUB = NUM1 - NUM2.
+  WRITE: / 'Subtraction':, SUB.
+ELSEIF CH = '*'.
+  DATA MUL TYPE I.
+  MUL = NUM1 * NUM2.
+  WRITE: / 'Multiplication': ,MUL.
+ELSEIF CH = '/'.
+  IF NUM2 <> 0.
+    DATA DIV TYPE I.
+    DIV = NUM1 / NUM2.
+    WRITE: / 'Division: ',DIV.
+  ELSE.
+    WRITE: / 'Division not possible (num2==0)'.
+  ENDIF.
+ELSE.
+  WRITE: / 'Wrong Option, choose correct option.'.
+ENDIF.

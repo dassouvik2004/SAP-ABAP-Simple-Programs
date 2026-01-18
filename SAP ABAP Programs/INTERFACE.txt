@@ -1,0 +1,46 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_INTERFACE
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_INTERFACE.
+INTERFACE INF.
+  METHODS: M.
+ENDINTERFACE.
+
+CLASS TEST DEFINITION.
+  PUBLIC SECTION.
+    INTERFACES INF.
+    METHODS M1.
+ENDCLASS.
+
+CLASS TEST IMPLEMENTATION.
+  METHOD INF~M.
+    WRITE: /'This is method M in test from interface.'.
+  ENDMETHOD.
+  METHOD M1.
+    WRITE: /'This is method M1 own.'.
+  ENDMETHOD.
+ENDCLASS.
+
+CLASS TEST1 DEFINITION.
+  PUBLIC SECTION.
+    INTERFACES INF.
+  PRIVATE SECTION.
+    DATA D TYPE I VALUE 5.
+ENDCLASS.
+
+CLASS TEST1 IMPLEMENTATION.
+  METHOD INF~M.
+    WRITE: /'Value of private variable: ', D.
+  ENDMETHOD.
+ENDCLASS.
+
+START-OF-SELECTION.
+  DATA OBJ TYPE REF TO TEST.
+  CREATE OBJECT OBJ.
+  CALL METHOD: OBJ->INF~M,OBJ->M1.
+
+  DATA OBJ1 TYPE REF TO TEST1.
+  CREATE OBJECT OBJ1.
+  CALL METHOD: OBJ1->INF~M,OBJ->M1.

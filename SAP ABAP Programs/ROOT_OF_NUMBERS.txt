@@ -1,0 +1,14 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_MULTIPLICATION
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_MULTIPLICATION.
+* Root of numbers
+DATA: NUMS TYPE I, RESULT TYPE I.
+
+DO 10 TIMES.
+  NUMS   = SY-INDEX.
+  RESULT = SY-INDEX * NUMS.
+  WRITE: / SY-INDEX,'x', NUMS, '=', RESULT.
+ENDDO.

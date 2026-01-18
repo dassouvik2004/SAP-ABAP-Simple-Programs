@@ -1,0 +1,24 @@
+*&---------------------------------------------------------------------*
+*& Report Z_15242723119_CALCULATOR
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_15242723119_CALCULATOR.
+PARAMETERS: A TYPE I, B TYPE I.
+DATA: SUM TYPE I, SUB TYPE I, MUL TYPE I, DIV TYPE I.
+SUM = A + B.
+SUB = A - B.
+MUL = A * B.
+
+IF B <> 0.
+  DIV = A / B.
+ELSE.
+  WRITE: / 'Division not possible (b==0)'.
+ENDIF.
+
+WRITE: / 'Summation: ', SUM,
+       / 'Subtraction: ', SUB,
+       / 'Multiplication: ', MUL.
+IF B <> 0.
+  WRITE: / 'Division: ', DIV.
+ENDIF.
